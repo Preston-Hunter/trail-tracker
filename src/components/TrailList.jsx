@@ -9,7 +9,6 @@ function TrailList({setTrails, trails}){
     },[])
 
     if (!isLoaded) {return <h2>loading...</h2>}
-    console.log("hmmmmmmm")
     return (
         <table>
             <thead>
@@ -18,7 +17,6 @@ function TrailList({setTrails, trails}){
                 <td>Difficulty</td>
                 <td>Address</td>
                 <td>Coordinates</td>
-
             </thead>
             <tbody>
             {trails.map((trail)=>{return <Trail key = {trail.id} name = {trail.name} lat = {trail.lattitude} long = {trail.longitude} length = {trail.length} dif = {trail.difficulty} address = {trail.googleAddress}></Trail>})}
