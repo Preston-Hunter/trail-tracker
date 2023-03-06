@@ -7,11 +7,18 @@ import TrailList from "./TrailList"
 
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [searchName, setSearchName] = useState("")
+  const [searchDifficulty, setSearchDifficulty] = useState("")
+  const [searchAddress, setSearchAddress] = useState("")
+  const [searchLengthLower, setSearchLengthLower] = useState(0)
+  const [searchLengthHigher, setSearchLengthHigher] = useState(Infinity)
+
   const [trails, setTrails] = useState([])
+
   return (
   <div>
-    <TrailList trails = {trails} setTrails = {setTrails}></TrailList>
+    <TrailList trails = {trails} setTrails = {setTrails} searchDifficulty={searchDifficulty} searchAddress={searchAddress} 
+    searchLengthHigher={searchLengthHigher} searchLengthLower={searchLengthLower} searchName={searchName}></TrailList>
     <DisplayTrail></DisplayTrail>
   </div>
   )

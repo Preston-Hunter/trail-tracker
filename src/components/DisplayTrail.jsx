@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 function DisplayTrail(){
     const [isGoodId, setIsGoodId] = useState(false)
-    const [userInputId, setUserInputId] = useState(5)
+    const [userInputId, setUserInputId] = useState(1)
     const [displayedItem, setDisplayedItem] = useState()
     
     useEffect(
@@ -21,14 +21,27 @@ function DisplayTrail(){
             }
         },[userInputId])
 
+        function difficultyToStars(d){
+            switch (d){
+                case "easy":
+                    return "★☆☆";
+                    break;
+                case "medium": 
+                    return "★★☆";
+                    break;
+                default:
+                    return "★★★";
+            }
+        }
+
     if (!isGoodId){return <h2>input id</h2>}
     return (
     <div>
         <h1>{displayedItem.name}</h1>
-        <h1>{displayedItem.length}</h1>
-        <h1>{displayedItem.difficulty} and stars</h1>
-        <h1>{displayedItem.googleAddress}</h1>
-        <h1>{"("+displayedItem.lattitude + "," + displayedItem.longitude+")"}</h1>
+        <h1>{displayedItem.length} miles</h1>
+        <h1>Difficulty: {displayedItem.difficulty + difficultyToStars(displayedItem.difficulty)} </h1>
+        <h1>Google Maps Address: {displayedItem.googleAddress}</h1>
+        <h1>Lattitude/Longitude: {"("+displayedItem.lattitude + "," + displayedItem.longitude+")"}</h1>
     </div>)
 }
 
