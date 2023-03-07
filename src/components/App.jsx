@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import reactLogo from '../assets/react.svg'
 import './App.css'
 import DisplayTrail from './DisplayTrail'
@@ -6,6 +6,7 @@ import TrailList from "./TrailList"
 import NavBar from "./NavBar"
 import SearchBar from './SearchBar'
 import PostTrail from './PostTrail'
+import {Route, Routes} from "react-router-dom"
 
 function App() {
   const [searchName, setSearchName] = useState("")
@@ -19,12 +20,21 @@ function App() {
   return (
   <div>
     <NavBar></NavBar>
-    <SearchBar setSearchName = {setSearchName} setSearchDifficulty={setSearchDifficulty} setSearchAddress={setSearchAddress} 
-    setSearchLengthHigher={setSearchLengthHigher} setSearchLengthLower={setSearchLengthLower}></SearchBar>
-    <TrailList trails = {trails} setTrails = {setTrails} searchDifficulty={searchDifficulty} searchAddress={searchAddress} 
-    searchLengthHigher={searchLengthHigher} searchLengthLower={searchLengthLower} searchName={searchName}></TrailList>
-    <DisplayTrail></DisplayTrail>
-    <PostTrail trails={trails} setTrails={setTrails}></PostTrail>
+    <Routes>
+      <Route path = "/" element={
+        <React.Fragment>
+          <SearchBar setSearchName = {setSearchName} setSearchDifficulty={setSearchDifficulty} setSearchAddress={setSearchAddress} 
+          setSearchLengthHigher={setSearchLengthHigher} setSearchLengthLower={setSearchLengthLower}/>
+          <TrailList trails = {trails} setTrails = {setTrails} searchDifficulty={searchDifficulty} searchAddress={searchAddress} 
+          searchLengthHigher={searchLengthHigher} searchLengthLower={searchLengthLower} searchName={searchName}/>
+        </React.Fragment>
+        }/>
+ 
+        
+
+      <Route path = "/TrailDetails" element={<DisplayTrail></DisplayTrail>}/>
+      <Route path = "/Post" element={<PostTrail trails={trails} setTrails={setTrails}/>}/>
+    </Routes>
   </div>
   )
 }

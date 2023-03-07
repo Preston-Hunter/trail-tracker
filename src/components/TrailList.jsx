@@ -28,10 +28,11 @@ function TrailList({setTrails, trails, searchLengthLower, searchLengthHigher, se
                     <td>Difficulty</td>
                     <td>Address</td>
                     <td>Coordinates</td>
+                    <td>Delete Button</td>
                 </tr>
             </thead>
             <tbody>
-            {filteredTrails.map((trail)=>{return <Trail key = {trail.id} name = {trail.name} lat = {trail.lattitude} long = {trail.longitude} length = {trail.length} dif = {trail.difficulty} address = {trail.googleAddress}></Trail>})}
+            {filteredTrails.map((trail)=>{return <Trail id = {trail.id} trails={trails} setTrails={setTrails} key = {trail.id} name = {trail.name} lat = {trail.lattitude} long = {trail.longitude} length = {trail.length} dif = {trail.difficulty} address = {trail.googleAddress}></Trail>})}
             </tbody>
         </table>
     )    

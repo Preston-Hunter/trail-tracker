@@ -6,6 +6,7 @@ function NavBar(){
     <NavLink to = "/">Home</NavLink>
     <NavLink to = "/Map">Map</NavLink>
     <NavLink to = "/Post">Post Trail</NavLink>
+    <NavLink to = "/TrailDetails">View Trails Details</NavLink>
     </div>)
 }
 
