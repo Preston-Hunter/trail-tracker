@@ -1,25 +1,34 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 
 
 function DisplayTrail(){
     const [isGoodId, setIsGoodId] = useState(false)
-    const [userInputId, setUserInputId] = useState(1)
+    const [userInputId, setUserInputId] = useState(useParams().id)
     const [displayedItem, setDisplayedItem] = useState()
-    
-    useEffect(
-        ()=>{if(userInputId!=0){
-                fetch(`http://localhost:3000/trails/${userInputId}`).then(resp=>{if (resp.ok){return resp.json()} else{return false}}).then(_=>{
-                    if (_===false){
-                        setIsGoodId(false);
-                        setDisplayedItem(null);
-                    }
-                else{
-                    setDisplayedItem(_);
-                    setIsGoodId(true);
-                }})
-            }
-        },[userInputId])
+
+    const idParam = useParams().id;
+    console.log("before use effect")
+
+    //todo try to make the url change refresh page asap
+    function handleFetch(u){
+        console.log("during use effect")
+        if(u!=0){
+            fetch(`http://localhost:3000/trails/${u}`).then(resp=>{if (resp.ok){return resp.json()} else{return false}}).then(_=>{
+                if (_===false){
+                    setIsGoodId(false);
+                    setDisplayedItem(null);
+                }
+            else{
+                setDisplayedItem(_);
+                setIsGoodId(true);
+            }})
+        }
+    }
+
+
+    useEffect(()=>{handleFetch(idParam)},[idParam])
 
         function difficultyToStars(d){
             switch (d){
