@@ -20,14 +20,26 @@ function App() {
   
   const [trails, setTrails] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
+  const [randId, setRandId] = useState(1)
 
   useEffect(()=>{
       fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setIsLoaded(true)})
   },[])
+  
+  function generateRandId(){
+      if(trails===undefined){
+          setRandId(1);
+      }
+      else if (trails.length!==0){
+          setRandId(trails[Math.floor(Math.random()*trails.length)].id)
+      }
+      else{setRandId(0);}
+      console.log("id set to "+randId)
+  }
 
   return (
   <div>
-    <NavBar trails={trails}></NavBar>
+    <NavBar trails={trails} randId={randId} generateRandId={generateRandId}></NavBar>
     <Routes>
       <Route path = "/" element = {<About/>}/>
       <Route index path = "/trails" element={
