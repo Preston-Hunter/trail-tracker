@@ -9,7 +9,7 @@ import PostTrail from './PostTrail'
 import {Route, Routes} from "react-router-dom"
 import About from "./About"
 import Map from "./Map"
-
+import { useEffect } from 'react'
 
 function App() {
   const [searchName, setSearchName] = useState("")
@@ -19,17 +19,22 @@ function App() {
   const [searchLengthHigher, setSearchLengthHigher] = useState(Infinity)
   
   const [trails, setTrails] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(()=>{
+      fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setIsLoaded(true)})
+  },[])
 
   return (
   <div>
-    <NavBar></NavBar>
+    <NavBar trails={trails}></NavBar>
     <Routes>
       <Route path = "/" element = {<About/>}/>
       <Route index path = "/trails" element={
         <React.Fragment>
           <SearchBar setSearchName = {setSearchName} setSearchDifficulty={setSearchDifficulty} setSearchAddress={setSearchAddress} 
           setSearchLengthHigher={setSearchLengthHigher} setSearchLengthLower={setSearchLengthLower}/>
-          <TrailList trails = {trails} setTrails = {setTrails} searchDifficulty={searchDifficulty} searchAddress={searchAddress} 
+          <TrailList isLoaded = {isLoaded} trails = {trails} setTrails = {setTrails} searchDifficulty={searchDifficulty} searchAddress={searchAddress} 
           searchLengthHigher={searchLengthHigher} searchLengthLower={searchLengthLower} searchName={searchName}/>
         </React.Fragment>
         }/>

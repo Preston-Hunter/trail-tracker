@@ -2,7 +2,9 @@
 
 
 function Map(){
-    return(<div></div>)
+
+
+    return(<div id = "map"></div>)
 }
 
 export default Map

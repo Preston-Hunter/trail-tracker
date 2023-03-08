@@ -1,23 +1,21 @@
 import { useEffect, useState } from "react";
 import Trail from "./Trail"
 
-function TrailList({setTrails, trails, searchLengthLower, searchLengthHigher, searchDifficulty, searchName, searchAddress}){
-    const [isLoaded, setIsLoaded] = useState(false)
+function TrailList({setTrails, trails, searchLengthLower, searchLengthHigher, searchDifficulty, searchName, searchAddress, isLoaded}){
 
-    useEffect(()=>{
-        fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setIsLoaded(true)})
-    },[])
     let filteredTrails = [...trails]
 
     filteredTrails = filteredTrails.filter((trail)=>{
         if (!(trail.name.includes(searchName))){return false}
         if (!(trail.difficulty.includes(searchDifficulty))){return false}
         if (!(trail.googleAddress.includes(searchAddress))){return false}
-        if (!(trail.length > searchLengthLower)){return false}
-        if (!(trail.length < searchLengthHigher)){return false}
+        if (!(trail.length >= searchLengthLower)){return false}
+        if (!(trail.length <= searchLengthHigher)){return false}
         return true;
     })
 
+    
+    
     if (!isLoaded) {return <h2>loading...</h2>}
     return (
         <table>

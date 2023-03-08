@@ -9,10 +9,8 @@ function DisplayTrail(){
     const [displayedItem, setDisplayedItem] = useState()
 
     const idParam = useParams().id;
-    console.log("before use effect")
 
     function handleFetch(u){
-        console.log("during use effect")
         if(u!=0){
             fetch(`http://localhost:3000/trails/${u}`).then(resp=>{if (resp.ok){return resp.json()} else{return false}}).then(_=>{
                 if (_===false){

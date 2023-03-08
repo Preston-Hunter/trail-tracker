@@ -22,6 +22,7 @@ function PostTrail({trails, setTrails}){
 
     function handleSubmit(e){
         e.preventDefault()
+        console.log("posted")
         fetch("http://localhost:3000/trails", {
             method:"POST",
             headers:{
