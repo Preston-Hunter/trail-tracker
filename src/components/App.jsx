@@ -29,9 +29,6 @@ function App() {
           searchLengthHigher={searchLengthHigher} searchLengthLower={searchLengthLower} searchName={searchName}/>
         </React.Fragment>
         }/>
- 
-        
-
       <Route path = "/TrailDetails" element={<DisplayTrail></DisplayTrail>}/>
       <Route path = "/Post" element={<PostTrail trails={trails} setTrails={setTrails}/>}/>
     </Routes>
