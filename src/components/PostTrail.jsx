@@ -30,15 +30,15 @@ function PostTrail({trails, setTrails}){
             },
             body:JSON.stringify(formData)}).then(resp=>resp.json()).then(_=>{setTrails([...trails, {...formData, "id":_.id}])})
     }
-    console.log("before return")
+
     return (
     <form>
         <input type="text" placeholder={"name"} onChange={(e)=>{setName(e.target.value)}}></input>
         <input type="number" placeholder={"length"} onChange={(e)=>{setLength(parseInt(e.target.value))}}></input>
         <input type="text" placeholder={"address"} onChange={(e)=>{setAddress(e.target.value)}}></input>
         <input type="text" placeholder={"difficulty"} onChange={(e)=>{setDif(e.target.value)}}></input>
-        <input type="number" placeholder={"lattitude"} onChange={(e)=>{setLat(parseInt(e.target.value))}}></input>
-        <input type="number" placeholder={"longitude"} onChange={(e)=>{setLong(parseInt(e.target.value))}}></input>
+        <input type="number" placeholder={"lattitude"} onChange={(e)=>{setLat(parseFloat(e.target.value))}}></input>
+        <input type="number" placeholder={"longitude"} onChange={(e)=>{setLong(parseFloat(e.target.value))}}></input>
         <NavLink to = "../">        
             <button type = "submit" onClick={handleSubmit}>Submit New Trail</button>
         </NavLink>

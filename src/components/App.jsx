@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import reactLogo from '../assets/react.svg'
-import './App.css'
 import DisplayTrail from './DisplayTrail'
 import TrailList from "./TrailList"
 import NavBar from "./NavBar"
@@ -20,15 +19,15 @@ function App() {
   
   const [trails, setTrails] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
-  const [randId, setRandId] = useState(1)
+  const [randId, setRandId] = useState(0)
 
   useEffect(()=>{
-      fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setIsLoaded(true)})
+      fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setRandId(arr[Math.floor(Math.random()*arr.length)].id);setIsLoaded(true); })
   },[])
   
   function generateRandId(){
       if(trails===undefined){
-          setRandId(1);
+          setRandId(0);
       }
       else if (trails.length!==0){
           setRandId(trails[Math.floor(Math.random()*trails.length)].id)

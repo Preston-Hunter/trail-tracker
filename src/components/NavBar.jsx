@@ -3,8 +3,7 @@ import { BrowserRouter, Route, NavLink} from "react-router-dom";
 
 
 function NavBar({generateRandId, randId}){
-    //todo clicking trail  details should show random trail
-
+    //syncornize backend and front end randomization. there is a small delay between sync
     
     return(<div>
     <NavLink to = "/">About</NavLink>

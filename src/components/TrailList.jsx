@@ -22,7 +22,7 @@ function TrailList({setTrails, trails, searchLengthLower, searchLengthHigher, se
             <thead>
                 <tr>
                     <td>Name</td>
-                    <td>Length</td>
+                    <td>Length (miles)</td>
                     <td>Difficulty</td>
                     <td>Address</td>
                     <td>Coordinates</td>

@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 
 function DisplayTrail(){
     const [isGoodId, setIsGoodId] = useState(false)
-    const [userInputId, setUserInputId] = useState(useParams().id)
     const [displayedItem, setDisplayedItem] = useState()
 
     const idParam = useParams().id;
@@ -40,7 +39,7 @@ function DisplayTrail(){
             }
         }
 
-    if (!isGoodId){return <h2>input id</h2>}
+    if (!isGoodId){return <h2>Invalid Trail Id ({idParam}) or no Trail data in database</h2>}
     return (
     <div>
         <h1>{displayedItem.name}</h1>
