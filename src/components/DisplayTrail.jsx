@@ -11,7 +11,6 @@ function DisplayTrail(){
     const idParam = useParams().id;
     console.log("before use effect")
 
-    //todo try to make the url change refresh page asap
     function handleFetch(u){
         console.log("during use effect")
         if(u!=0){

@@ -1,4 +1,4 @@
-
+import {NavLink} from "react-router-dom"
 
 function Trail({name, lat, long, length, dif, address, id, setTrails, trails}){
     function handleDelete(){
@@ -14,7 +14,9 @@ function Trail({name, lat, long, length, dif, address, id, setTrails, trails}){
 
     return(
         <tr id = {id}>
-            <td>{name}</td>
+            <td>
+                <NavLink to={`${id}`}>{name}</NavLink>
+            </td>
             <td>{length}</td>
             <td>{dif}</td>
             <td>{address}</td>
