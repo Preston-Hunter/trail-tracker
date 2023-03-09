@@ -51,7 +51,7 @@ function App() {
         }/>
       <Route path = "/trails/:id" element={<DisplayTrail></DisplayTrail>}/>
       <Route path = "/Post" element={<PostTrail trails={trails} setTrails={setTrails}/>}/>
-      <Route path = "/Map" element={<Map/>}/>
+      <Route path = "/Map" element={<Map trails={trails}/>}/>
     </Routes>
   </div>
   )

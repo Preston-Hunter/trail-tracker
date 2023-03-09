@@ -32,7 +32,7 @@ function PostTrail({trails, setTrails}){
     }
 
     return (
-    <form>
+    <form id = "submit-form">
         <input type="text" placeholder={"name"} onChange={(e)=>{setName(e.target.value)}}></input>
         <input type="number" placeholder={"length"} onChange={(e)=>{setLength(parseInt(e.target.value))}}></input>
         <input type="text" placeholder={"address"} onChange={(e)=>{setAddress(e.target.value)}}></input>
@@ -40,7 +40,7 @@ function PostTrail({trails, setTrails}){
         <input type="number" placeholder={"lattitude"} onChange={(e)=>{setLat(parseFloat(e.target.value))}}></input>
         <input type="number" placeholder={"longitude"} onChange={(e)=>{setLong(parseFloat(e.target.value))}}></input>
         <NavLink to = "../">        
-            <button type = "submit" onClick={handleSubmit}>Submit New Trail</button>
+            <button id="submit-button" type = "submit" onClick={handleSubmit}>Submit New Trail</button>
         </NavLink>
     </form>)
 }

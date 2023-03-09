@@ -41,7 +41,7 @@ function DisplayTrail(){
 
     if (!isGoodId){return <h2>Invalid Trail Id ({idParam}) or no Trail data in database</h2>}
     return (
-    <div>
+    <div id = "detailed-display">
         <h1>{displayedItem.name}</h1>
         <h1>{displayedItem.length} miles</h1>
         <h1>Difficulty: {displayedItem.difficulty + difficultyToStars(displayedItem.difficulty)} </h1>

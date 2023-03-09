@@ -7,7 +7,7 @@ function SearchBar({setSearchLengthLower, setSearchLengthHigher, setSearchDiffic
 
     return (
 
-    <div>
+    <div id="search-bars">
         <GenericSearchInput setSearchTerm={setSearchName} prompt={"Name"} defaultValue={""}></GenericSearchInput>
         <GenericSearchInput setSearchTerm={setSearchAddress} prompt={"Address"} defaultValue={""}></GenericSearchInput>
         <GenericSearchInput setSearchTerm={setSearchDifficulty} prompt={"Difficulty"} defaultValue={""}></GenericSearchInput>

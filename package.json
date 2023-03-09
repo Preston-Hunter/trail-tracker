@@ -10,6 +10,8 @@
     "start": "json-server --watch db.json"
   },
   "dependencies": {
+    "@googlemaps/js-api-loader": "^1.15.1",
+    "@react-google-maps/api": "^2.18.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.8.2"
