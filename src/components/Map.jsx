@@ -1,10 +1,11 @@
 import { Loader } from "@googlemaps/js-api-loader"
 import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
-
+import {key} from "../../key.json"
 function Map({trails}){
  
-    const googleKey = "g"
+    const googleKey = key
+
     const containerStyle = {
         width: '800px',
         height: '800px'
