@@ -3,36 +3,22 @@ import React from "react";
 import { GoogleMap, Marker, useJsApiLoader } from '@react-google-maps/api';
 
 function Map({trails}){
-    // const []
-
-    // let mapDiv = <div id="map"></div>//document.createElement("div")
-
-    // const loader = new Loader({
-    //     apiKey: "AIzaSyCkOtXpP66uqinuWay-dgdazx8_65gVak8",
-    //     version: "weekly",
-        
-    //   });
-      
-    //   loader.load().then(() => {
-    //     map = new google.maps.Map(mapDiv, {
-    //       center: { lat: -34.397, lng: 150.644 },
-    //       zoom: 8,
-    //     });
-    //   });
-
+ 
+    const googleKey = "g"
     const containerStyle = {
         width: '800px',
         height: '800px'
       };
       
       const center = {
-        lat: 39.745,
-        lng: -100.523
+        lat: 39.645,
+        lng: -105.523
       };
       
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
-        googleMapsApiKey: "AIzaSyCkOtXpP66uqinuWay-dgdazx8_65gVak8"
+        // replaced key cuz it was plaintext lol
+        googleMapsApiKey: googleKey
     })
       
     const [map, setMap] = React.useState(null)

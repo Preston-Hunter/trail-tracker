@@ -11,7 +11,7 @@ function NavBar({generateRandId, randId}){
         <NavLink to = "/trails">View All Trails</NavLink>
         <NavLink to = "/Map">Map</NavLink>
         <NavLink to = "/Post">Post Trail</NavLink>
-        <NavLink onClick={()=>{generateRandId()}} to = {`/trails/${randId}`}>View Trail Details</NavLink>
+        <NavLink onClick={()=>{generateRandId()}} to = {`/trails/${randId}`}>View Random Trail Details</NavLink>
     </div>)
 }
 
