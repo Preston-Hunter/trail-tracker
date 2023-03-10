@@ -19,7 +19,11 @@
     position: absolute;
     top: 0; left: 0;
   }
-
+  #root {
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
   html, body{
     width:100%;
     height: 100%;
@@ -27,14 +31,47 @@
     margin: 0;
   }
 
+  script{
+    padding: 0;
+    margin: 0;
+  }
 
+/* Nav bar styling */
   #nav-bar{
     display:flex;
   }
 
-  /* #background-image {
-    content:url("src/assets/wonderland_9.jpg");
-  } */
+  
+  #nav-bar a {
+    margin-right: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size:xx-large;
+    color: #70c2ee;
+    text-decoration: inherit;
+    border-bottom:3px solid #6adddf;
+    -webkit-text-stroke: .9px rgb(0, 0, 0);
+  }
+
+  #nav-bar a:hover {
+    color: #747bff;
+    border-bottom:3px solid #747bff;
+
+  }
+
+/* search bar styling */
+  #search-bars{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5px;
+  }
+
+  #search-bars input{
+    margin-right: 10px;
+  }
+
+  /* BackGroun images */
 
   img {
     width:100%;
@@ -44,10 +81,7 @@
     padding: 0;
   }
 
-  script{
-    padding: 0;
-    margin: 0;
-  }
+
   ._page{
     content:url("src/assets/wonderland.jpg");
   }
@@ -69,51 +103,21 @@
   }
 
 
-  /* body {
-    /* background-image: url("src/assets/wonderland_9.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    height:100%;
-    width:100%;
-    min-height: 500px; */
-    /* position: relative;  */
-    /* height: 100%; */
-    /* margin: 0; */
-  /* } */ 
 
-  #nav-bar a {
-    margin-right: 10px;
-    margin-left: 10px;
-    margin-bottom: 10px;
-    font-weight: 500;
-    font-size:xx-large;
-    color: #70c2ee;
-    text-decoration: inherit;
-    border-bottom:3px solid #6adddf;
+/* About page styling */
+  p {
+    -webkit-text-stroke: 0.33px white;
+    font-size: x-large;
+    font-weight: 600;
   }
 
-  #nav-bar a:hover {
-    color: #747bff;
-    border-bottom:3px solid #747bff;
+/* Trails List styling */
 
-  }
-
-  a {
-    font-weight: 500;
-    color: #0c8827;
-    text-decoration: inherit;
-  }
-
-  #search-bars{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 5px;
-  }
-
-  #search-bars input{
-    margin-right: 10px;
-  }
+a {
+  font-weight: 500;
+  color: #0c8827;
+  text-decoration: inherit;
+}
 
 thead tr td{
     text-align: center;
@@ -125,28 +129,24 @@ table, td{
 }
 
 
-
+/* Post Trail styling */
 #submit-button:hover{
     color:#4ad668;
 }
 
-#detailed-display h1{
-    color:#3b924e;
-}
-
 #submit-form input{
-    margin-right: 10px;
+  margin-right: 10px;
 }
-  
-  /* body {
-    margin: 0;
-    display: flex;
-    place-items: center;
-    min-width: 320px;
-    min-height: 100vh;
-  }
-   */
 
+/* Detailed display styling */
+#detailed-display h1{
+    color:#286458;
+    -webkit-text-stroke: 0.7px rgb(255, 254, 254);
+}
+
+
+
+/* Buttons (post trail and delete trail) */
   
   button {
     border-radius: 8px;
@@ -158,8 +158,18 @@ table, td{
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
-    /* width:100%;
-    height: 100%; */
+
+  }
+
+  button:hover {
+    border-color: #000000;
+    background-color: #7b7171;
+    color:red;
+  }
+
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
   }
 
   table button{
@@ -167,16 +177,8 @@ table, td{
     height: 100%;
   }
 
-  button:hover {
-    border-color: #000000;
-    background-color: #7b7171;
-    color:red;
-}
 
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
+/*  */
   
   @media (prefers-color-scheme: light) {
     :root {
@@ -193,10 +195,4 @@ table, td{
   
 /*--------------------------------*/
 
-#root {
-  /* max-width: 1280px; */
-  margin: 0 auto;
-  padding: 2rem;
-  /* text-align: center; */
-}
 

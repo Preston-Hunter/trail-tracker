@@ -7,14 +7,22 @@ function Map({trails}){
     const googleKey = key
 
     const containerStyle = {
-        width: '800px',
-        height: '800px'
+        width: '600px',
+        height: '600px'
       };
       
-      const center = {
-        lat: 39.645,
-        lng: -105.523
-      };
+      let center = { lat: 39.645, lng: -105.523};
+      if (trails !== undefined){
+        if (trails.length!==0){
+            center = {lat:trails[0].lattitude, lng:trails[0].longitude}
+        }
+      }
+
+
+    //   const center = {
+    //     lat: 39.645,
+    //     lng: -105.523
+    //   };
       
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
