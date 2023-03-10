@@ -5,7 +5,7 @@ import TrailList from "./TrailList"
 import NavBar from "./NavBar"
 import SearchBar from './SearchBar'
 import PostTrail from './PostTrail'
-import {Route, Routes} from "react-router-dom"
+import {Route, Routes, useLocation } from "react-router-dom"
 import About from "./About"
 import Map from "./Map"
 import { useEffect } from 'react'
@@ -20,6 +20,16 @@ function App() {
   const [trails, setTrails] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [randId, setRandId] = useState(0)
+  const [imgClass, setImgClass] = useState("post-trail")
+
+  let bg_image = document.getElementById("background-image")
+
+  useEffect(()=>{  
+    bg_image.classList=[imgClass]
+  },[imgClass])
+
+
+
 
   useEffect(()=>{
       fetch("http://localhost:3000/trails").then(resp=>resp.json()).then(arr=>{setTrails(arr); setRandId(arr[Math.floor(Math.random()*arr.length)].id);setIsLoaded(true); })
@@ -35,6 +45,21 @@ function App() {
       else{setRandId(0);}
       console.log("id set to "+randId)
   }
+
+
+
+  const path = useLocation().pathname;
+  const locationList = path.split("/");
+  let location = "";
+  if(locationList.length===2){
+   location = locationList[1];}
+   else{
+    location="random"
+   }
+
+  useEffect(()=>{  setImgClass(location+"_page")
+
+  },[location])
 
   return (
   <div>

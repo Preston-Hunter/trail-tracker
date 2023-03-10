@@ -12,14 +12,75 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-text-size-adjust: 100%;
+
   }
+
+  #root{
+    position: absolute;
+    top: 0; left: 0;
+  }
+
+  html, body{
+    width:100%;
+    height: 100%;
+    padding:0;
+    margin: 0;
+  }
+
+
   #nav-bar{
     display:flex;
   }
 
-  .about{
-    background-image: "src/assets/wonderland_9.jpg";
+  /* #background-image {
+    content:url("src/assets/wonderland_9.jpg");
+  } */
+
+  img {
+    width:100%;
+    height: 100%;
+    /* object-fit: cover; */
+    margin: 0;
+    padding: 0;
   }
+
+  script{
+    padding: 0;
+    margin: 0;
+  }
+  ._page{
+    content:url("src/assets/wonderland.jpg");
+  }
+
+  .trails_page{
+    content:url("src/assets/view_all.jpg");
+  }
+
+  .random_page{
+    content:url("src/assets/random.jpg");
+  }
+
+  .Map_page{
+    content:url("src/assets/snow.jpg");
+  }
+
+  .Post_page{
+    content:url("src/assets/signpost.jpg");
+  }
+
+
+  /* body {
+    /* background-image: url("src/assets/wonderland_9.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    height:100%;
+    width:100%;
+    min-height: 500px; */
+    /* position: relative;  */
+    /* height: 100%; */
+    /* margin: 0; */
+  /* } */ 
 
   #nav-bar a {
     margin-right: 10px;
@@ -63,6 +124,8 @@ table, td{
   background-color: rgb(224, 221, 221);
 }
 
+
+
 #submit-button:hover{
     color:#4ad668;
 }
@@ -95,6 +158,11 @@ table, td{
     background-color: #1a1a1a;
     cursor: pointer;
     transition: border-color 0.25s;
+    /* width:100%;
+    height: 100%; */
+  }
+
+  table button{
     width:100%;
     height: 100%;
   }
